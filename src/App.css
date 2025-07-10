@@ -1,38 +1,306 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500&display=swap');
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Playfair Display', serif;
+  background-color: #fff0fa;
+  color: #3b003b;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
+.app-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, #ffd6f9 0%, #fff0fa 100%);
+}
+
+.app-container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(255, 182, 255, 0.2), transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+  animation: slowGlow 6s ease-in-out infinite;
+}
+
+/* Background Images */
+.background-image {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  animation: floatImage 8s ease-in-out infinite alternate;
+}
+
+.image-box {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(255, 182, 255, 0.3);
+}
+
+.image-inner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  filter: brightness(1.1) contrast(1.05);
+}
+
+/* Floating hearts */
+.floating-heart {
+  position: absolute;
+  bottom: -50px;
+  animation: floatHeart 6s linear infinite;
+}
+
+.heart-icon {
+  color: #ff1493;
+  opacity: 0.9;
+  animation: pulseHeart 3s ease-in-out infinite;
+}
+
+/* Sparkles */
+.sparkles-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.sparkle {
+  position: absolute;
+  animation: twinkle 2s infinite, rotateSparkle 6s linear infinite;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sparkle-icon {
+  color: #ff90ff;
+  opacity: 0.8;
+  filter: blur(1px);
+}
+
+/* Content */
+.content {
+  position: relative;
+  text-align: center;
+  top: 10%;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+  z-index: 10;
+}
+
+.content.show {
+  animation: fadeInUp 2s ease forwards;
+}
+
+.title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  margin: 0.5rem 0;
+  color: #b3006b;
+  text-shadow: 0 0 8px #ffd9f1;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin: 0.25rem 0;
+  color: #77004d;
+}
+
+.subtitle.small {
+  font-size: 1rem;
+  color: #880066;
+}
+
+/* Poem */
+.poem-box {
+  margin: 2rem auto;
+  max-width: 600px;
+  padding: 1rem;
+  background-color: rgba(255, 223, 248, 0.4);
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(255, 182, 255, 0.3);
+  border: 1px solid #ffaad4;
+}
+
+.poem-title {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #a00070;
+}
+
+.star-icon {
+  color: #a00070;
+}
+
+.poem-line {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: #5e005e;
+}
+
+/* Message */
+.message-box {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #6b004b;
+}
+
+/* Proposal */
+.proposal-box {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: rgba(255, 230, 255, 0.5);
+  box-shadow: 0 0 15px rgba(255, 182, 255, 0.2);
+  border: 1px solid #ffaad4;
+}
+
+.proposal-box h2 {
+  margin-bottom: 0.5rem;
+  color: #cc0077;
+}
+
+.proposal-box p {
+  margin-bottom: 1rem;
+  color: #660044;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.yes-button,
+.no-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  line-height: 1;
+}
+
+.yes-button {
+  background: linear-gradient(135deg, #ff34b1, #ff8cd9);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(255, 105, 180, 0.6);
+}
+
+.yes-button:hover {
+  background: #ff0fae;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff69b4, 0 0 30px #ffb6d5;
+}
+
+.no-button {
+  background: #888;
+  color: #fff;
+}
+
+.no-button:hover {
+  background: #aaa;
+  transform: scale(1.05);
+}
+
+.animate-yes {
+  animation: pulseYes 1s ease-in-out;
+}
+
+.btn-icon {
   color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+/* Footer */
+.footer-text {
+  margin-top: 2rem;
+  font-style: italic;
+  color: #aa0055;
+  font-size: 0.9rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Falling Petals */
+.falling-petal {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(#ffb3d9, #ff69b4);
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: fallPetal 10s linear infinite;
+}
+
+/* Animations */
+@keyframes floatHeart {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+}
+
+@keyframes floatImage {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes rotateSparkle {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulseHeart {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@keyframes pulseYes {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); background-color: #ff0fae; }
+  100% { transform: scale(1); }
+}
+
+@keyframes slowGlow {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fallPetal {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .title { font-size: 2rem; }
+  .subtitle { font-size: 1.2rem; }
+  .poem-line { font-size: 1rem; }
+  .proposal-box h2 { font-size: 1.2rem; }
+  .buttons { flex-direction: column; }
 }
