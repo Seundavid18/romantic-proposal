@@ -7,15 +7,18 @@ body, html, #root {
   font-family: 'Playfair Display', serif;
   background-color: #fff0fa;
   color: #3b003b;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;  
 }
 
 .app-container {
   position: relative;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: visible;
   background: radial-gradient(ellipse at center, #ffd6f9 0%, #fff0fa 100%);
+  padding-bottom: 4rem;
 }
 
 .app-container::before {
