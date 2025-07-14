@@ -12,10 +12,10 @@ const RomanticProposal = () => {
 
   const poems = [
     {
-      title: "My Dearest Darasimi",
+      title: "My Dearest Morenikeji",
       lines: [
         "In your eyes, I see my future bright and clear,",
-        "Darasimi Blessing, you're everything I hold dear.",
+        "Morenikeji Elizabeth, you're everything I hold dear.",
         "Your smile lights up my darkest days,",
         "In countless beautiful and magical ways."
       ]
@@ -23,7 +23,7 @@ const RomanticProposal = () => {
     {
       title: "A Love Beyond Words",
       lines: [
-        "Abioudun, your name means joy in my heart,",
+        "Elizabeth, your name means joy in my heart,",
         "From the very first moment, you set me apart.",
         "Like stars that dance in the midnight sky,",
         "You're the reason I believe love can fly."
@@ -32,7 +32,7 @@ const RomanticProposal = () => {
     {
       title: "Forever Yours",
       lines: [
-        "Obadara, my precious one, so divine,",
+        "Pamilerin, my precious one, so divine,",
         "Would you take my hand and forever be mine?",
         "Through every season, through joy and strife,",
         "I want to love you for the rest of my life."
@@ -115,7 +115,7 @@ const RomanticProposal = () => {
           }}
         >
           <div className="image-box">
-            <img src={img.src} alt="Darasimi" className="image-inner" />
+            <img src={img.src} alt="Morenikeji" className="image-inner" />
           </div>
         </div>
       ))}
@@ -164,8 +164,8 @@ const RomanticProposal = () => {
 
       <div className={`content ${showMessage ? 'show' : ''}`}>
         <h1 className="title">My Beloved</h1>
-        <h2 className="subtitle">Darasimi Blessing</h2>
-        <h3 className="subtitle small">Abioudun Obadara</h3>
+        <h2 className="subtitle">Morenikeji Elizabeth</h2>
+        <h3 className="subtitle small">Pamilerin Elizabeth</h3>
 
         <div className="poem-box">
           <div className="poem-title">
